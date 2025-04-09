@@ -1,0 +1,196 @@
+/* Global reset */
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Layout grid */
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f6f9;
+    display: grid;
+    grid-template-columns: auto 300px;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Responsive: switch to stacked layout on small screens */
+  @media (max-width: 768px) {
+    body {
+      display: block;
+    }
+  
+    .left-panel,
+    .right-panel {
+      width: 100%;
+      height: auto;
+      padding: 20px;
+    }
+  
+    .right-panel {
+      border-top: 1px solid #ddd;
+      border-left: none;
+    }
+  }
+  
+  /* Config icon (top left) */
+  #configIcon {
+    position: fixed;
+    top: 15px;
+    left: 20px;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 10;
+    color: #1a73e8;
+  }
+  
+  /* Floating prompt panel */
+  #promptPanel {
+    display: none;
+    position: fixed;
+    top: 50px;
+    left: 20px;
+    background-color: #eef3ff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 15px;
+    width: 300px;
+    z-index: 20;
+  }
+  
+  #promptPanel textarea {
+    width: 100%;
+    height: 100px;
+    font-size: 14px;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  #promptPanel button {
+    margin-top: 10px;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Left panel (main input form) */
+  .left-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 40px;
+  }
+  
+  .form-container {
+    width: 100%;
+    max-width: 900px;
+  }
+  
+  /* Symptom form */
+  .left-panel h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  textarea#symptomInput {
+    width: 100%;
+    height: 220px;
+    font-size: 16px;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    resize: vertical;
+  }
+  
+  button#submitBtn {
+    margin-top: 15px;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+  }
+  
+  /* Right panel (history) */
+  .right-panel {
+    background-color: #f0f2f5;
+    border-left: 1px solid #ddd;
+    padding: 20px 15px;
+    overflow-y: auto;
+    height: 100%;
+  }
+  
+  /* History items */
+  .tab {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    cursor: pointer;
+  }
+  
+  .tab:hover {
+    background-color: #e9f1ff;
+  }
+  
+  /* Result display box */
+  .result-box {
+    background: #fff;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-top: 6px;
+    white-space: pre-line;
+    font-size: 12px;
+  }
+  
+  /* Re-analyze and copy buttons */
+  .reanalyze-btn,
+  .copy-btn {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 5px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  
+  .copy-btn {
+    background-color: #1a73e8;
+    margin-left: 8px;
+  }
+  
+  /* Clear history button */
+  #clearHistoryBtn {
+    background-color: #e53935;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  /* Feedback messages */
+  #error {
+    color: red;
+    margin-top: 10px;
+  }
+  
+  #loading {
+    color: green;
+    margin-top: 10px;
+  }
+  

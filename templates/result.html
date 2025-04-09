@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Symptom Result</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f9fc;
+      padding: 40px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .response-box {
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 8px;
+      white-space: pre-line;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      color: #1a73e8;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Result for: "{{ symptoms }}"</h1>
+
+  <div class="response-box" id="responseBox">
+    {{ response_text }}
+  </div>
+
+  <a href="/input" id="backLink">← Back to symptom form</a>
+
+  <script>
+    // Save result to history in localStorage
+    const symptoms = {{ symptoms|tojson }};
+    const response = {{ response_text|tojson }};
+    const entry = {
+      id: Date.now(),
+      symptoms: symptoms,
+      response: response,
+      time: new Date().toLocaleString()
+    };
+
+    let history = JSON.parse(localStorage.getItem("symptomHistory")) || [];
+    history.unshift(entry);
+    localStorage.setItem("symptomHistory", JSON.stringify(history));
+  </script>
+</body>
+</html>

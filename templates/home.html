@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MedPrompt AI</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 40px;
+    }
+
+    a.button {
+      background-color: #1a73e8;
+      color: white;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 16px;
+      transition: background 0.3s ease;
+    }
+
+    a.button:hover {
+      background-color: #1669c1;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Welcome to MedPrompt AI</h1>
+  <p>Check your symptoms with AI. Get smart, private health insights in seconds.</p>
+  <a href="/input" class="button">🩺 Start Symptom Check</a>
+
+</body>
+</html>

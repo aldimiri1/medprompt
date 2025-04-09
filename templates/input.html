@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Symptom Checker</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+
+  <!-- ⚙️ Config Icon -->
+  <div id="configIcon" title="Edit system prompt">⚙️</div>
+
+  <!-- Prompt Panel -->
+  <div id="promptPanel">
+    <textarea id="systemPrompt" placeholder="System prompt goes here..."></textarea>
+    <button id="savePromptBtn">💾 Save</button>
+  </div>
+
+  <!-- LEFT PANEL -->
+  <div class="left-panel">
+    <div class="form-container">
+      <h1>Describe Your Symptoms</h1>
+      <form id="symptomForm" action="/result" method="post">
+        <textarea id="symptomInput" name="symptoms" placeholder="e.g., I've had chest tightness and shortness of breath for 2 days."></textarea>
+
+        <!-- 🎙️ Recording Section -->
+        <div style="margin-top: 20px;">
+          <button type="button" id="recordBtn">🎙️ Start Recording</button>
+          <span id="recordStatus" style="margin-left: 10px; font-size: 14px;"></span>
+        </div>
+
+        <input type="hidden" id="hiddenPrompt" name="system_prompt">
+        <button type="submit" id="submitBtn">🧠 Analyze</button>
+      </form>
+
+      <p id="error"></p>
+      <p id="loading" style="display: none;">Analyzing your symptoms...</p>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="right-panel">
+    <h4 style="font-size: 14px; margin-bottom: 10px;">🕘 History</h4>
+    <button id="clearHistoryBtn" style="margin-bottom: 10px;">🧼 Clear History</button>
+    <div id="historyTabs"></div>
+  </div>
+
+</body>
+</html>
